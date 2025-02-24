@@ -1,0 +1,126 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{multirow}
+%\usepackage[margin=2cm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{subcaption}
+\usepackage{setspace} 
+
+\definecolor{AB}{rgb}{0,0.3961,0.7412}
+
+\usepackage[bookmarksnumbered=true]{hyperref} 
+\hypersetup{
+     colorlinks = true,
+     linkcolor = AB,
+     anchorcolor = AB,
+     citecolor = AB,
+     filecolor = AB,
+     urlcolor = AB
+ }
+\usepackage{enumitem}
+\allowdisplaybreaks
+
+\addtolength{\oddsidemargin}{-.8in}
+\addtolength{\evensidemargin}{-.65in}
+\addtolength{\textwidth}{1.68in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.15in}
+
+\usepackage{titlesec}
+\titleformat{\section}{\fontsize{12}{14}\sc}{\thesection}{1em}{}[]
+\titleformat{\subsection}{\fontsize{11}{12}\sc}{\thesubsection}{1em}{}[]
+\titleformat{\subsubsection}{\fontsize{10}{11}\sc}{\thesubsection}{1em}{}[]
+ 
+ \setlength{\parindent}{0pt}
+ 
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\sc}
+\renewcommand{\cftsecfont}{\sc}
+\renewcommand{\cftsubsecfont}{\sc}
+
+\usepackage{abstract}
+\renewcommand\abstractnamefont{\sc}
+
+\usepackage[round]{natbib}
+
+ 
+\begin{document}
+\thispagestyle{empty}
+
+\begin{flushleft} \includegraphics[width=1.0\textwidth]{headers}   \end{flushleft}
+
+\vskip0.5cm
+\begin{spacing}{2} {\Large\sc\noindent Exercise List 2}
+\end{spacing}
+
+\vfill
+
+\begin{spacing}{1.2}
+{\large\sc  Antonio Felype Ferreira Maciel - 576261}\\
+
+{\noindent \large \sc Master's Course in Teleinformatics Engineering}\\
+{\noindent \large \sc Federal University of Ceará}\\
+
+{\noindent \large \sc TIP8300 - Nonlinear System Optimization}
+\end{spacing}
+
+\newpage 
+
+% \tableofcontents
+
+\newpage
+
+%\begin{abstract}
+% This report provides a concise introduction to Up-flow Anaerobic Sludge Blanket reactor, outlines its applications in Brazil, and explains the model we are using for simulations. We discuss our intentions for using this model, the challenges we are currently facing and our next steps. 
+%\end{abstract}
+
+% \section{Introduction} \label{sec:intro}
+
+\begin{enumerate}
+    \item Considere o seguinte problema de otimização:
+        \begin{align*}
+            \text{minimize} & \quad (x_1 - 1)^2 + (x_2 - 2)^2\\
+            \text{sujeito a} & \quad (x_1 - 1)^2 = 6x_2 
+        \end{align*}
+        \begin{itemize}
+            \item[(a)] Como este problema pode ser classificado?
+            \item[(b)] Verifique se é possível encontrar um problema equivalente convexto.
+            \item[(c)] Expresse as condições de KKT para o problema.
+            \item[(d)] Determine a solução ótima.
+        \end{itemize}
+    \item Considere o problema de otimização:
+        \begin{align*}
+            \text{minimize} & \quad x^2 + 3x + 1\\
+            \text{sujeito a} & \quad (x - 1)(x - 3) \leq 0
+        \end{align*}
+        \begin{itemize}
+            \item[(a)] Expresse as condições de KKT para o problema.
+            \item[(b)] Determine a solução ótima.
+            \item[(c)] Encontre a função dual e o problema dual.
+            \item[(d)] Verifique se o problema apresenta dualidade forte.
+        \end{itemize}
+    \item Considere o problema de otimização:
+        \begin{align*}
+            \text{minimize} & \quad x^2 + y^2\\
+            \text{sujeito a} & \quad \begin{cases}
+                x + y \geq 1\\
+                y \leq 2\\
+                y^2 \geq x
+            \end{cases}
+        \end{align*}
+        \begin{itemize}
+            \item[(a)] Expresse as condições de KKT para o problema.
+            \item[(b)] Determine os pontos que satisfazem às condições de KKT e encontre a solução ótima.
+        \end{itemize}
+\end{enumerate}
+
+\end{document}
