@@ -1,8 +1,9 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}Problem Definition}{3}{section.1}%
-\contentsline {section}{\numberline {2}Suboptimal approaches}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Uniform power}{5}{subsection.2.1}%
+\contentsline {section}{\numberline {2}Suboptimal approaches}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Uniform power}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Least-squares}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Weighted least-squares}{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Linear programming}{7}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.3}Weighted least-squares}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Linear programming}{6}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Optimal approach: Convex optimization}{7}{section.3}%
+\contentsline {section}{\numberline {4}Results}{8}{section.4}%

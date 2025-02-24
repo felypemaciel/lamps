@@ -257,6 +257,13 @@ INPUT .\figures\uniform-power.pdf
 INPUT .\figures\uniform-power.pdf
 INPUT .\figures\uniform-power.pdf
 INPUT .\figures\uniform-power.pdf
+INPUT C:\Users\room2\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1000.tfm
+INPUT .\figures\uniform-power-worst.pdf
+INPUT .\figures\uniform-power-worst.pdf
+INPUT .\figures\uniform-power-worst.pdf
+INPUT .\figures\uniform-power-worst.pdf
+INPUT .\figures\uniform-power-worst.pdf
+INPUT .\figures\uniform-power-worst.pdf
 INPUT .\figures\convex-function.pdf
 INPUT .\figures\convex-function.pdf
 INPUT .\figures\convex-function.pdf
@@ -270,6 +277,8 @@ INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecr
 INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk
 INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk
 INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk
+INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
+INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
 INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk
 INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk
 INPUT C:\Users\room2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk

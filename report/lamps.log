@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.1)  23 FEB 2025 15:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.1)  24 FEB 2025 17:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -430,7 +430,7 @@ Package hyperref Info: Link coloring ON on input line 56.
 \@outlinefile=\write3
 \openout3 = `lamps.out'.
 
-<headers.pdf, id=31, 988.82742pt x 98.55571pt>
+<headers.pdf, id=35, 988.82742pt x 98.55571pt>
 File: headers.pdf Graphic file (type pdf)
 <use headers.pdf>
 Package pdftex.def Info: headers.pdf  used on input line 59.
@@ -472,93 +472,99 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
  []
 
 
-Overfull \hbox (6.0878pt too wide) in paragraph at lines 105--106
+Overfull \hbox (6.0878pt too wide) in paragraph at lines 107--108
 []\T1/cmr/m/n/10.95 Using least-squares, i.e., $[] \OML/cmm/m/it/10.95 : []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 I[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 I[]\OT1/cmr/m/n/10.95 )[]$\T1/cmr/m/n/10.95 , and round-ing $\OML/cmm/m/it/10.95 p[]$ \T1/cmr/m/n/10.95 as $\OML/cmm/m/it/10.95 p[] \OT1/cmr/m/n/10.95 = []\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ; []\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 p[]; p[]\OMS/cmsy/m/n/10.95 gg$\T1/cmr/m/n/10.95 . 
  []
 
-<figures/lamps-patches-position.pdf, id=60, 400.0458pt x 312.02145pt>
+<figures/lamps-patches-position.pdf, id=65, 400.0458pt x 312.02145pt>
 File: figures/lamps-patches-position.pdf Graphic file (type pdf)
 <use figures/lamps-patches-position.pdf>
-Package pdftex.def Info: figures/lamps-patches-position.pdf  used on input line 147.
+Package pdftex.def Info: figures/lamps-patches-position.pdf  used on input line 149.
 (pdftex.def)             Requested size: 240.70653pt x 187.74754pt.
 
 
 [3]
-
-[4 <./figures/lamps-patches-position.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
-
- []
-
-<figures/uniform-power.pdf, id=122, 422.39493pt x 312.02145pt>
+<figures/uniform-power.pdf, id=87, 422.39493pt x 312.02145pt>
 File: figures/uniform-power.pdf Graphic file (type pdf)
 <use figures/uniform-power.pdf>
-Package pdftex.def Info: figures/uniform-power.pdf  used on input line 165.
-(pdftex.def)             Requested size: 264.77866pt x 195.59853pt.
+Package pdftex.def Info: figures/uniform-power.pdf  used on input line 166.
+(pdftex.def)             Requested size: 221.45323pt x 163.58517pt.
+<figures/uniform-power-worst.pdf, id=88, 410.9616pt x 314.26488pt>
+File: figures/uniform-power-worst.pdf Graphic file (type pdf)
+<use figures/uniform-power-worst.pdf>
+Package pdftex.def Info: figures/uniform-power-worst.pdf  used on input line 170.
+(pdftex.def)             Requested size: 216.6344pt x 165.66287pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--191
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+
+
+[4 <./figures/lamps-patches-position.pdf> <./figures/uniform-power.pdf> <./figures/uniform-power-worst.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
 
 
-[5 <./figures/uniform-power.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 193--194
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+Underfull \hbox (badness 10000) in paragraph at lines 252--253
 
  []
 
 
 
 [6]
-<figures/convex-function.pdf, id=185, 400.37517pt x 315.83257pt>
+<figures/convex-function.pdf, id=235, 400.37517pt x 315.83257pt>
 File: figures/convex-function.pdf Graphic file (type pdf)
 <use figures/convex-function.pdf>
-Package pdftex.def Info: figures/convex-function.pdf  used on input line 283.
+Package pdftex.def Info: figures/convex-function.pdf  used on input line 339.
 (pdftex.def)             Requested size: 264.77866pt x 208.88385pt.
 
 
-[7]
+[7 <./figures/convex-function.pdf>]
 
-[8 <./figures/convex-function.pdf>] (lamps.aux)
+[8] (lamps.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-16>
  ***********
 Package rerunfilecheck Info: File `lamps.out' has not changed.
-(rerunfilecheck)             Checksum: 7F69A4EEB203B453FB476576C88552B3;1222.
+(rerunfilecheck)             Checksum: A887EFB35A4DCB6451E3BF3C694C58AF;1313.
  ) 
 Here is how much of TeX's memory you used:
- 14477 strings out of 473899
- 230943 string characters out of 5726501
- 1941960 words of memory out of 5000000
- 37112 multiletter control sequences out of 15000+600000
- 577777 words of font info for 97 fonts, out of 8000000 for 9000
+ 14523 strings out of 473899
+ 231979 string characters out of 5726501
+ 1943960 words of memory out of 5000000
+ 37147 multiletter control sequences out of 15000+600000
+ 578540 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,80p,556b,477s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on lamps.pdf (8 pages, 360887 bytes).
+ 75i,15n,80p,641b,535s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on lamps.pdf (8 pages, 391675 bytes).
 PDF statistics:
- 485 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 575 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
+ 90 words of extra memory for PDF output out of 10000 (max. 10000000)
 

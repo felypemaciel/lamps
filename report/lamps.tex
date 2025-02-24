@@ -93,10 +93,12 @@ Consider $m$ lamps illuminating $n$ (small flat) patches. The illumination inten
 where $r_{k,j}$ is the length of the vector $r_{k,j}$ connecting the center of the $k$-th patch to the position of the $m$-th lamp and $\theta_{k,j}$ is the angle between the patch normal vector $\mathbf{n}_k$ and $\mathbf{r}_{k,j}$. See the Convex Optimization book slides for more details.\\
 
 The proposed problem is to achieve a desired illumination $I_{des}$ with bounded lamp powers ($p_{max}$), i.e.,
-\begin{align*}
-    \min & \quad \underset{k=1,2,\dots,n}{\max}\vert \log{(I_k)} - \log{(I_{des})} \vert \\
-    \text{s.t.} & \quad 0 \leq p_j \leq p_{max}, j = 1, 2, \dots, m.
-\end{align*}
+\begin{equation}
+    \begin{aligned}
+        \min & \quad \underset{k=1,2,\dots,n}{\max}\vert \log{(I_k)} - \log{(I_{des})} \vert \\
+        \text{s.t.} & \quad 0 \leq p_j \leq p_{max}, j = 1, 2, \dots, m.
+    \end{aligned}\label{eq:original-cost}
+\end{equation}
 
 \begin{itemize}
     \item[] Suboptimally solve the problem using, e.g., Python or Octave, according to the following approaches:
@@ -152,21 +154,28 @@ For this work, $n = 4$ lamps illuminating $m = 5$ patches are considered. Matric
 
 \section{Suboptimal approaches}
 
-All the code developed for this work is avaiable online\footnote{\href{https://github.com/felypemaciel/lamps/blob/main/lamps.ipynb}{Lamps and Patches - GitHub Repository}}.
+All the code developed for this work is available online\footnote{\href{https://github.com/felypemaciel/lamps/blob/main/lamps.ipynb}{Lamps and Patches - GitHub Repository}}.
 
 \subsection{Uniform power}
 
-For this approach, a value of power $p$ is assumed to be the same for all the lamps. By varying the value of $p$, it is possible to see how the illuminations of each patch behave.\\
-
-Figure~\ref{fig:uniform-power} shows how the illumination in each patch evolves as the power $p$ grows. We see that the desired illumination is met for each patch at different values of $p$. In this manner, even though it is possible to reach the desired illumination for a patch, the others either have less or more illumination that they should.\\
+For this approach, a value of power $p$ is assumed to be the same for all the lamps. By varying the value of $p$, it is possible to see how the illuminations of each patch behave, as shown in Figure~\ref{fig:uniform-power-patches}.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.55\textwidth]{figures/uniform-power.pdf}
-    \caption{Patches' illumination when varying a uniform power.}\label{fig:uniform-power}
+    \begin{subfigure}[b]{0.46\textwidth}
+        \includegraphics[width=\textwidth]{figures/uniform-power.pdf}
+        \caption{}\label{fig:uniform-power-patches}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{figures/uniform-power-worst.pdf}
+        \caption{}\label{fig:uniform-power-cost}
+    \end{subfigure}
+    \caption{Patches' illumination when varying a uniform power (\subref{fig:uniform-power-patches}) and its cost function (\subref{fig:uniform-power-cost}).}\label{fig:uniform-power}
 \end{figure}
 
-The RMSE curve shows how the RMSE varies for the power variation. The power that minimizes it used to calculate the illumination coefficients, which are shown in Table~\ref{tab:uniform-power}.
+We see that the desired illumination is met for each patch at different values of $p$. In this manner, even though it is possible to reach the desired illumination for a patch, the others either have less or more illumination that they should.\\
+
+The uniform power $p$ is chosen to minimize the original cost function (\ref{eq:original-cost}), as shown in Figure~\ref{fig:uniform-power-cost}. The illumination coefficients obtained with $p$ are displayed in Table~\ref{tab:uniform-power}. Although most of the patches have illuminations close to the desired, patches 1 and 5 are quite distant from the objective.
 
 \begin{table}[!htb]
     \centering
@@ -174,7 +183,8 @@ The RMSE curve shows how the RMSE varies for the power variation. The power that
     \begin{tabular}{lccccc}
         \hline
         & Patch 1 & Patch 2 & Patch 3 & Patch 4 & Patch 5\\
-        Illumination & 0.012 & 0.011& 0.009& 0.0097& 0.0072\\
+        \hline
+        Illumination & $1.29\times10^{-2}$ & $1.18\times10^{-2}$ & $0.97\times10^{-2}$ & $1.04\times10^{-2}$ & $0.77\times10^{-2}$\\
         \hline
     \end{tabular}\label{tab:uniform-power}
 \end{table}
@@ -190,12 +200,12 @@ In the least-squares approach, we aim at determining the vector of powers $p$ th
 In this approach, it is not possible to set the constraints for $p$, i.e., ($0 <= p <= p_{max}$). A possible way to get over this is to set negative elements of $p$ to 0 and values greater than $p_{max}$ to be equal to $p_{max}$, i.e., $p_j = max\{0, min\{p_j, p_{max}\}\}$.\\
 
 
-The matrix form of the problem is $\min (Ap - I_{des})^2,$, where $A$ is the matrix of illumination coefficients $a_{kj}$, that represent the illumination coefficient of lamp j to the patch k. $p$ is the vector of lamps powers. Each element of $Ap$ gives the illumination of a patch.\\
+The matrix form of the problem is $\min (Ap - I_{des})^2,$, where $A$ is the matrix of illumination coefficients $a_{kj}$, that represent the illumination coefficient of lamp j to the patch k. $p$ is the vector of lamps' powers. Each element of $Ap$ gives the illumination of a patch.\\
 
 The least-squares problem has a closed form for determining $p$, which is $p = (A^T A)^{-1} A^T I_{des}$.\\
 
-From Table~\ref{tab:least-squares} it is possible to see that the solution obtained through least-squares produces illuminations quite close the desired. However, since it does not have constraints, there are lamps with negative powers (Table \ref{tab:least-squares-power}). Additionally, the solution could also have lamps using more power than it was established. 
-When fixing the negative powers, the patches' ilumination become far away from the desired.
+From Table~\ref{tab:least-squares} it is possible to see that the solution obtained through least-squares produces illuminations quite close to the desired. However, since it does not have constraints, there are lamps with negative powers (Table \ref{tab:least-squares-power}). The solution could also have lamps using more power than it was established. 
+When fixing the negative powers however, the patches' illumination becomes far away from the desired.
 
 \begin{table}[!htb]
     \centering
@@ -203,8 +213,9 @@ When fixing the negative powers, the patches' ilumination become far away from t
     \begin{tabular}{lccccc}
         \hline
         & Patch 1 & Patch 2 & Patch 3 & Patch 4 & Patch 5\\
-        Not constrained & 0.0101 & 0.00982 & 0.00967 & 0.0105 & 0.00989\\
-        Constrained & 0.0378 & 0.0369 & 0.0211 & 0.0255 & 0.0177\\
+        \hline
+        Not constrained & $1.01\times10^{-2}$ & $0.98\times10^{-2}$ & $0.97\times10^{-2}$ & $1.05\times10^{-2}$ & $0.99\times10^{-2}$\\
+        Constrained & $3.78\times10^{-2}$ & $3.69\times10^{-2}$ & $2.11\times10^{-2}$ & $2.55\times10^{-2}$ & $1.77\times10^{-2}$\\
         \hline
     \end{tabular}\label{tab:least-squares}
 \end{table}
@@ -215,64 +226,109 @@ When fixing the negative powers, the patches' ilumination become far away from t
     \begin{tabular}{lcccc}
         \hline
         & Lamp 1 & Lamp 2 & Lamp 3 & Lamp 4\\
-        Power & -0.399 & 0.944 & -0.143 & 0.192\\
+        \hline
+        Power & $-0.399$ & $0.944$ & $-0.143$ & $0.192$\\
         \hline
     \end{tabular}\label{tab:least-squares-power}
 \end{table}
 
 \subsection{Weighted least-squares}
 
-In the weighted least-squares approach, we aim at minimizing a function composed of the least-squares approach function and the squared difference between the vector $p$ and $p_{max}$, weighted by coefficients $w$. 
+In the weighted least-squares (WLS) approach, we aim at minimizing a function composed of the least-squares approach function and the squared difference between the vector $p$ and $p_{max}$, weighted by coefficients $w$. 
 \begin{equation*}
     \min \displaystyle \sum_{k=1}^{n}(I_k - I_{des})^2 + w_j\sum_{j=1}^n (p_j - p_{max})^2
 \end{equation*}
 
-The purpose of this additional term is to penalise the cost function for values of $p_j$ that deviate from $p_{max}$. The coefficient $w_j$ determines how strong this penalty is, and it can be adjusted to meet the constraints for $p$: $0 \leq p \leq p_{max}$. In this approach, the weights must be iteratively be changed to meet the constraints.\\
+The purpose of this additional term is to penalise the cost function for values of $p_j$ that deviate from $p_{max}$. The coefficient $w_j$ determines how strong this penalty is, and it can be adjusted to meet the constraints for $p$: $0 \leq p \leq p_{max}$.\\
 
 This problem also has a closed form for $p$ (\ref{eq:p-weighted-least-squares}), where $W \in \mathbb{R}^{m \times m}$ is the diagonal matrix of weights.
 \begin{equation}
-    p = (A^T A + W)^{-1} \cdot (A^T I_{des} + W p_{max})
+    p_{wls} = (A^T A + W)^{-1} \cdot (A^T I_{des} + W p_{max})
     \label{eq:p-weighted-least-squares}
 \end{equation}
 
-Using this approach, we aim at finding solutions that minimizing the squared error between the patch illumination and the desired illumination, while also minimizing the squared difference between the lamps powers and the maximum power. This tends to produce solutions that have values near to $p_{max}$. This would not be interesting if we would also like to minimize the total power used by the lamps.\\
+When all the weights $w_j$ in the WLS approach are all zero, the problem turns out to be a regular least-squares approach. As shown in the previous section, the not constrained least-squares approach has a quite good result in minimizing the problem. Therefore, the value of zero for initializing the weights may be a good choice.\\
 
-Regarding to obtain solutions that respect the power constraints, the approach meets what is required. The patches also illuminations not too distance from the deisred. The final solution also depends on how the weights are iterated to meet the requirements.
+Since it is asked to update the weights until the powers $p$ are in the accepted range, this is a stop condition for the algorithm. Additionally, a maximum number of iterations is also considered. \\
+
+The vector of weights $\mathbf{w}$ that compose the main diagonal of $\mathbf{W}$ are updated according to Equation~\ref{eq:weight-update}, where $\mathbf{w}^{(t)}$ and $\mathbf{w}^{(t+1)}$ are the current and the next $\mathbf{w}$, respectively. $\alpha$ is a factor that multiplies the squared difference between the current vector of powers $p_{wls}^{(t)}$ and $p_{max}$, and the sum of squared errors of the current and desired illuminations. In this way, the weights are individually updated.
+
+\begin{equation}
+    \mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} + \alpha (p_{wls}^{(t)} - p_{max})^2 \sum_{k=1}^{n}{(I_k - I_{des})^2}
+    \label{eq:weight-update}
+\end{equation}
+
+The powers and the illuminations obtained are shown in Tables~\ref{tab:wls-powers} and~\ref{tab:wls-illumination}, for $\alpha=10^{-2}$.
+
+\begin{table}[!htb]
+    \centering
+    \caption{Lamps power obtained with WLS.}
+    \begin{tabular}{lcccc}
+        \hline
+        & Lamp 1 & Lamp 2 & Lamp 3 & Lamp 4\\
+        \hline
+        Power & $2.09\times 10 ^{-4}$ & $0.195$ & $0.012$ & $0.195$\\
+        \hline
+    \end{tabular}\label{tab:wls-powers}
+\end{table}
+
+\begin{table}[!htb]
+    \centering
+    \caption{Illumination results for WLS.}
+    \begin{tabular}{lccccc}
+        \hline
+        & Patch 1 & Patch 2 & Patch 3 & Patch 4 & Patch 5\\
+        \hline
+        Illumination & $1.08 \times 10^{-2}$ & $0.922 \times 10^{-2}$ & $0.987 \times 10^{-2}$ & $1.03 \times 10^{-2}$ & $0.973\times10^{-2}$\\
+        \hline
+    \end{tabular}\label{tab:wls-illumination}
+\end{table}
 
 \subsection{Linear programming}
 
-In the linear programming approach, we aim at formulate the problem such that it has a linear objective function and linear constraints. The proposed problem is to minimize the maximum of the absolute difference between the illumination of a patch and the desired illumination. 
-
+In the Linear Programming (LP) approach, we aim to formulate the problem such that it has a linear objective function and linear constraints. The proposed problem is to minimize the maximum of the absolute difference between the illumination of a patch and the desired illumination. 
 \begin{align*}
     \min & \quad \underset{k=1, 2, \dots, n}{\max} \vert I_{k} - I_{des} \vert \\
     \text{s.t.} & \quad 0 \leq p_j \leq p_{max}, \quad j = 1, 2, \dots, m.
 \end{align*}
 
-We can introduce a new variable $t$, such that $t \leq |I_k - I_{des}|, \quad \forall k = 1, \dots, n $. However, the absolute value is a nonlinear function. 
-
-This way, we can add linear inequalities to contour this problem, such as
+We can introduce a new variable $t$, such that $t \leq |I_k - I_{des}|, \quad \forall k = 1, \dots, n $. However, the absolute value is a nonlinear function. To get around this problem, we can add to it linear inequalities, such as
 \begin{align*}
-    t \geq & I_k - I_{des}, \quad \forall k\\
-    t \geq & -(I_k - I_{des}) \quad \forall k.
+    t \geq & \,I_k - I_{des}, \quad \forall k\\
+    t \geq & \,-(I_k - I_{des}) \quad \forall k.
 \end{align*}
 
-The linear programming problem can then be defined as
+This way, the linear problem can be defined as
 \begin{align*}
     \min \quad & t\\
     s.t. \quad & t \geq I_k - I_{des} \\
                & t \geq -(I_k - I_{des}) \\
-               & 0 \leq p_j \leq p_{max}, \quad j = 1, \dots, m
+               & 0 \leq p_j \leq p_{max}, \quad j = 1, \dots, m.
 \end{align*}
 
-The Linear Programming approach produces illuminations quite close to the desired without consuming much power as the previous approach. 
+As shown in Table~\ref{tab:linear-programming}, the LP approach produces illuminations quite close to the desired without consuming much power as the previous approach. 
+
+\begin{table}[!htb]
+    \centering
+    \caption{Illumination results for linear programming.}
+    \begin{tabular}{lccccc}
+        \hline
+        & Patch 1 & Patch 2 & Patch 3 & Patch 4 & Patch 5\\
+        \hline
+        & $1.071\times10^{-2}$ & $0.929\times10^{-2}$ & $1.06\times10^{-2}$ & $1.071\times10^{-2}$ & $0.929\times10^{-2}$\\
+        \hline
+    \end{tabular}\label{tab:linear-programming}
+\end{table}
 
 \section{Optimal approach: Convex optimization}
 
 In this approach, the problem is formulated as to minimize an equivalent convex function 
-\begin{align*}
-    \min \quad &  \underset{k = 1, 2, \dots, n}{\max} h\left(\cfrac{I_k}{I_{des}}\right) \\
-    \text{s.t.} \quad & 0 \leq p_j \leq p_{max}, \quad j = 1, 2, \dots, m,
-\end{align*}
+\begin{equation}
+    \begin{aligned}
+        \min \quad &  \underset{k = 1, 2, \dots, n}{\max} h\left(\cfrac{I_k}{I_{des}}\right) \\
+        \text{s.t.} \quad & 0 \leq p_j \leq p_{max}, \quad j = 1, 2, \dots, m,
+    \end{aligned}\label{eq:equivalent-problem}
+\end{equation}
 
 where $h(u) = \max\left\{u, \cfrac{1}{u}\right\}$.
 
@@ -283,5 +339,60 @@ As $I_k$ approaches $I_{des}$, the fraction $\cfrac{I_k}{I_{des}}$ gets closer t
     \includegraphics[width=0.55\textwidth]{figures/convex-function.pdf}
     \caption{Behaviour of the function $h(u)$.}\label{fig:convex-function}
 \end{figure}
+
+For this approach, the equivalent problem in Equation~\ref{eq:equivalent-problem} is reformulated as 
+
+\begin{equation*}
+    \begin{aligned}
+        \min \quad & t\\
+        \text{s.t.} \quad & \begin{cases}   
+            \cfrac{Ap}{I_{des}} \leq t\\
+            \cfrac{I_{des}}{Ap} \leq t\\
+            0 \leq p \leq p_{max}.\end{cases}
+    \end{aligned}
+\end{equation*}
+
+The illumination results for this approach are shown in Table~\ref{tab:convex}.
+
+\begin{table}[!htb]
+    \centering
+    \caption{Illumination results for linear programming.}
+    \begin{tabular}{lccccc}
+        \hline
+        & Patch 1 & Patch 2 & Patch 3 & Patch 4 & Patch 5\\
+        \hline
+        & $1.074\times10^{-2}$ & $0.931\times10^{-2}$ & $1.062\times10^{-2}$ & $1.074\times10^{-2}$ & $0.931\times10^{-2}$\\
+        \hline
+    \end{tabular}\label{tab:convex}
+\end{table}
+
+\section{Results}
+
+The objective in the original cost function (\ref{eq:original-cost}) is to minimize illumination with the worst result considering all the patches in the problem. This way, to compare the results of the different methods applied in this work, we check their worst illumination, i.e.,
+
+\begin{equation}
+    \underset{k=1,2,\dots,n}{\max} \vert \log(I_k) - \log(I_{des}) \vert.
+    \label{eq:worst}
+\end{equation}
+
+Table~\ref{tab:worst} summarizes the results. The uniform power result could vary depending on the cost function used to choose $p$. With the cost used, its worst result is just not greater than the least-squares approach. When applying the power constraints, the overall performance of the least-squares method is degraded. The same does not happen with the weighted least-squares method, whose worst result is by far lower than the previous methods. However, it must be taken into account that the method strongly depends on how the weights are updated.
+
+\begin{table}[!htb]
+    \centering
+    \caption{Worst illumination for each method, according to Equation~\ref{eq:worst}.}
+    \begin{tabular}{lc}
+        \hline
+        \textbf{Method} & \textbf{Worst result}\\
+        \hline
+        Uniform power           & 0.263 \\
+        Least-squares           & 1.330 \\
+        Weighted least-squares  & 0.081 \\
+        Linear programming      & 0.074 \\
+        Convex Optimization     & 0.071 \\
+        \hline
+    \end{tabular}\label{tab:worst}
+\end{table}
+
+The LP and the convex optimization methods have the lower worst results when compared with the other approaches. Despite being close, the optimal approach is able to obtain a better result. This may be explained by how similar the original problem (\ref{eq:original-cost}) and its equivalent (\ref{eq:equivalent-problem}) are, as shown in Figures~\ref{fig:uniform-power-cost} and~\ref{fig:convex-function}.
 
 \end{document}
