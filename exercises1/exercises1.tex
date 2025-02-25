@@ -89,8 +89,80 @@
     \item[\textbf{2.11}] Define the square $S = \{x \in \mathbf{R}^2 \,\vert\, 0 \leq x_i \leq 1, \, i = 1, 2\}$, and the disk $D = \{x \in \mathbf{R}^2 \, \vert \, \|x\|_2 \leq 1\}$. Are the following statements true or false?
     \item[] \begin{itemize}
         \item[(a)] $S \cap D$ is convex.
+            
+        A set is convex if, for every pair of point $x$ and $y \in C$ and every $\lambda \in [0, 1]$, the point $z = \lambda x + (1-\lambda)y$ also belongs to C. 
+
+        \begin{equation*}
+            S = \{(x_1, x_2) \vert 0 \leq x_1 \leq 1, 0 \leq x_2 \leq 1\}
+        \end{equation*}
+        
+        For $x = (x_1, x_2)$ and $y = (y_1, y_2) \in S$ and $\lambda \in [0, 1]$, $z = \lambda x + (1- \lambda)y$, which means that:
+        
+        \begin{equation*}
+            \begin{aligned}
+                z_1 = & \lambda x_1 + (1- \lambda)y_1\\ 
+                z_2 = & \lambda x_2 + (1- \lambda)y_2.
+            \end{aligned}
+        \end{equation*}
+
+        Since $x_1$ and $x_2$ vary between 0 and 1, for every of these extremities and for the values of $\lambda$, $z_1$ and $z_2$ also belong to $S$. This way, $S$ is convex.
+
+        \begin{equation*}
+            D = \{x \in \mathbf{R}^2 \,\vert\, \Vert x \Vert_2\}
+        \end{equation*}
+
+        For $D$ to be convex, for any two points $x_1$, $x_2 \in D$ and for any $\lambda \in [0,1]$, the combination
+
+        \begin{equation*}
+            z = x_1 \lambda + (1-\lambda)x_2
+        \end{equation*}
+
+        must belong to $D$. Therefore $\Vert z \Vert_2 \leq 1$ must be true.
+
+        Using the triangle inequality
+
+        \begin{equation*}
+            \begin{aligned}
+                \Vert z \Vert_2 \leq & \, \Vert x_1 \Vert_2 \lambda + (1 - \lambda)\Vert x_2 \Vert_2\\
+                \Vert x_1\lambda + (1-\lambda)\Vert_2 \leq & \, \Vert x_1 \Vert_2 \lambda + (1-\lambda) \Vert x_2\Vert_2.
+            \end{aligned}
+        \end{equation*}
+
+        Since $x_1, x_2 \in D$, $\Vert x_1 \Vert_2 \leq 1$ and $\Vert x_2 \Vert_2 \leq 1$. Then, for $x_1 = x_2 = 1$
+
+        \begin{equation*}
+            \begin{aligned}
+                \Vert z \Vert_2 \leq \, & \lambda(1-\lambda) = 1\\
+                \Vert z \Vert_2 \leq \, & 1.
+            \end{aligned}
+        \end{equation*}
+
+        This way, $D$ is also convex. Since both sets are convex and intersection preserves convexity, the sentence is \textbf{true}. $S$, in orange, and $D$ in blue are shown in Figure~\ref{fig:SD}. Their intersection is shown in Figure~\ref{fig:intersection}.
+ 
         \item[(b)] $S \cup D$ is convex.
-        \item[(c)] $S \setminus D$ is convex.
+        
+        Union does not necessarily preserves convexity. 
+        \item[(c)] $S \setminus D$ is convex.  But from Figure~\ref{fig:union}, it is possible to see that the sentence is \textbf{true}.
+        
+        \begin{figure}
+            \centering
+            \begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=\textwidth]{figures/SD.pdf}
+                \caption{}\label{fig:SD}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=\textwidth]{figures/intersection.pdf}
+                \caption{}\label{fig:intersection}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=\textwidth]{figures/SUD.pdf}
+                \caption{}\label{fig:union}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.24\textwidth}
+                \includegraphics[width=\textwidth]{figures/difference.pdf}\label{fig:difference}
+                \caption{}
+            \end{subfigure}
+        \end{figure}
     \end{itemize}
     \item[\textbf{2.13}] \textit{Minimal and minimum elements}. Consider the set $S = \{(0,2), (1,1), (2,3), (1,2), (4,0)\}$. Are the following statements true or false?
     \item[] \begin{itemize}
