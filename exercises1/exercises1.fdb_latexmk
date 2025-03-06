@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1741228481.33776 "c:/Users/room2/OneDrive/Documentos/GitHub/lamps/exercises1/exercises1.tex" "exercises1.pdf" "exercises1" 1741228483.32634 0
+["pdflatex"] 1741228566.88679 "c:/Users/room2/OneDrive/Documentos/GitHub/lamps/exercises1/exercises1.tex" "exercises1.pdf" "exercises1" 1741228568.63135 0
   "C:/Users/room2/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1740708331 174800 70e3df6e8d896a6d451f3bff0bb79120 ""
   "C:/Users/room2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1727979108 28976 5a309fde67aa2414ab64876f0004a2fb ""
   "C:/Users/room2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/eccc1200.pk" 1727979112 30576 164757eb176b97ccfab22cd77e935671 ""
@@ -138,10 +138,10 @@
   "C:/Users/room2/AppData/Local/Programs/MiKTeX/tex/latex/tocloft/tocloft.sty" 1578908763 37263 3e78d14f0f4b1a30560fea5e04de805d ""
   "C:/Users/room2/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/room2/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/room2/OneDrive/Documentos/GitHub/lamps/exercises1/exercises1.tex" 1741228480 21307 62d47b78f813ad56ef431d88992bd44a ""
-  "exercises1.aux" 1741228482 1293 37f0f801f9e6bee45879917b6f2b91d5 "pdflatex"
-  "exercises1.out" 1741228482 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "exercises1.tex" 1741228480 21307 62d47b78f813ad56ef431d88992bd44a ""
+  "c:/Users/room2/OneDrive/Documentos/GitHub/lamps/exercises1/exercises1.tex" 1741228565 21370 0050a91f1bc005b87d33d711ec95e8d3 ""
+  "exercises1.aux" 1741228568 1293 37f0f801f9e6bee45879917b6f2b91d5 "pdflatex"
+  "exercises1.out" 1741228568 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "exercises1.tex" 1741228565 21370 0050a91f1bc005b87d33d711ec95e8d3 ""
   "figures/SD.pdf" 1740456357 1452 41648a7276cd35f0166a118e89a1d6d4 ""
   "figures/SUD.pdf" 1740456440 1377 5651ac8b8e9f44bb1a68fa852210ca72 ""
   "figures/circle216.pdf" 1741031466 2784 28e186b1943e32b3d85ca6258a16659d ""
