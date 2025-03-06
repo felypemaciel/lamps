@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.1)  25 FEB 2025 01:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.1)  5 MAR 2025 23:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -462,33 +462,34 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 89.
  (C:\Users\room2\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-<figures/SD.pdf, id=18, 371.49847pt x 340.16861pt>
+<figures/SD.pdf, id=19, 371.49847pt x 340.16861pt>
 File: figures/SD.pdf Graphic file (type pdf)
 <use figures/SD.pdf>
-Package pdftex.def Info: figures/SD.pdf  used on input line 150.
+Package pdftex.def Info: figures/SD.pdf  used on input line 154.
 (pdftex.def)             Requested size: 115.54178pt x 105.79893pt.
-<figures/intersection.pdf, id=19, 231.26305pt x 199.97037pt>
+<figures/intersection.pdf, id=20, 231.26305pt x 199.97037pt>
 File: figures/intersection.pdf Graphic file (type pdf)
 <use figures/intersection.pdf>
-Package pdftex.def Info: figures/intersection.pdf  used on input line 154.
+Package pdftex.def Info: figures/intersection.pdf  used on input line 158.
 (pdftex.def)             Requested size: 115.54178pt x 99.90865pt.
-<figures/SUD.pdf, id=20, 371.49814pt x 340.16864pt>
+<figures/SUD.pdf, id=21, 371.49814pt x 340.16864pt>
 File: figures/SUD.pdf Graphic file (type pdf)
 <use figures/SUD.pdf>
-Package pdftex.def Info: figures/SUD.pdf  used on input line 158.
+Package pdftex.def Info: figures/SUD.pdf  used on input line 162.
 (pdftex.def)             Requested size: 115.54178pt x 105.79895pt.
-<figures/difference.pdf, id=21, 231.26305pt x 199.97041pt>
+<figures/difference.pdf, id=22, 231.26305pt x 199.97041pt>
 File: figures/difference.pdf Graphic file (type pdf)
 <use figures/difference.pdf>
-Package pdftex.def Info: figures/difference.pdf  used on input line 162.
+Package pdftex.def Info: figures/difference.pdf  used on input line 166.
 (pdftex.def)             Requested size: 115.54178pt x 99.90868pt.
+<figures/question2.png, id=23, 421.575pt x 316.3017pt>
+File: figures/question2.png Graphic file (type png)
+<use figures/question2.png>
+Package pdftex.def Info: figures/question2.png  used on input line 174.
+(pdftex.def)             Requested size: 240.70653pt x 180.60272pt.
 
 
 [2]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 189.
- (C:\Users\room2\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
 
 [3 <./figures/SD.pdf> <./figures/intersection.pdf
 
@@ -499,9 +500,26 @@ pdfTeX warning: pdflatex (file ./figures/SUD.pdf): PDF inclusion: multiple pdfs 
 > <./figures/difference.pdf
 
 pdfTeX warning: pdflatex (file ./figures/difference.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
+> <./figures/question2.png (PNG copy)>]
+<figures/circle216.pdf, id=52, 342.40288pt x 342.56786pt>
+File: figures/circle216.pdf Graphic file (type pdf)
+<use figures/circle216.pdf>
+Package pdftex.def Info: figures/circle216.pdf  used on input line 239.
+(pdftex.def)             Requested size: 240.70653pt x 240.82559pt.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 251.
+ (C:\Users\room2\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
 
-[4] (exercises1.aux)
+[4 <./figures/circle216.pdf>]
+
+[5]
+
+[6]
+
+[7]
+
+[8] (exercises1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-16>
@@ -510,17 +528,17 @@ Package rerunfilecheck Info: File `exercises1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14420 strings out of 473899
- 230612 string characters out of 5726501
- 1944960 words of memory out of 5000000
- 37086 multiletter control sequences out of 15000+600000
- 573428 words of font info for 73 fonts, out of 8000000 for 9000
+ 14469 strings out of 473899
+ 231397 string characters out of 5726501
+ 1946960 words of memory out of 5000000
+ 37118 multiletter control sequences out of 15000+600000
+ 577329 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,80p,668b,775s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on exercises1.pdf (4 pages, 297450 bytes).
+ 75i,13n,80p,668b,775s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\room2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/room2/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on exercises1.pdf (8 pages, 363745 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 6 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
