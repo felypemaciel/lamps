@@ -14,6 +14,7 @@
 \usepackage{mathrsfs}
 \usepackage{subcaption}
 \usepackage{setspace} 
+\usepackage{enumitem}
 
 \definecolor{AB}{rgb}{0,0.3961,0.7412}
 
@@ -93,9 +94,85 @@
         \end{align*}
         \begin{itemize}
             \item[(a)] Como este problema pode ser classificado?
-            \item[(b)] Verifique se é possível encontrar um problema equivalente convexto.
+            
+            O problema é um Programa Quadrático com Restrição Quadrática (QCQP). 
+
+            \item[(b)] Verifique se é possível encontrar um problema equivalente convexo.
+            
+            Utilizando a relaxação convexa, podemos relaxar a restrição de igualdade para uma restrição de inequidade:
+            \begin{equation*}
+                (x_1 - 1)^2 \leq 6x_2.
+            \end{equation*}
+
+            Dessa forma, o problema passa a ser um problema de otimização convexo.
+
             \item[(c)] Expresse as condições de KKT para o problema.
+            
+            Neste problema, desejamos minimizar a função $f(x_1, x_2) = (x-1)^2 + (x_2 - 2)^2$ sujeita à restrição $h(x_1, x_2) = (x_1 - 1)^2 - 6x_2 = 0$.
+
+            As condições de KKT para o problema são:
+
+            \begin{enumerate}[label=\Roman*]
+                \item \textbf{Restrições primárias:} $f_i(x) \leq 0, \, i=1,\dots, m, \, h_i(x) = 0, \, i=1, \dots, p$.
+                \begin{equation}
+                    h(x_1,x_2) = 0 \leadsto (x_1 - 1)^2 - 6x_2 = 0
+                    \label{eq:primal-constraint}
+                \end{equation}
+                \item \textbf{Restrições duais:} $\lambda \succeq 0$.
+                
+                Para as restrições de igualdade, não há restrições de sinal para o multiplicador de Lagrange. Logo, a restrição dual é $\lambda \in \mathbf{R}$.
+                \item \textbf{Folga complementar:} $\lambda_i f_i(x) = 0, \, i=1, \dots, m$.
+                
+                Para restrições de igualdade, a folga complementar é satisfeita já que a restrição é rígida.
+
+                \item O gradiente do Lagrangeano com respeito a $x$ desaparece:
+                \begin{equation*}
+                    \nabla f_0(x) + \sum_{i=1}^{m} \lambda_i \nabla f_i(x) + \sum_{i=1}^{p} \nu_i h_i(x) = 0.
+                \end{equation*}
+
+                A função Lagrangeano $\mathcal{L}(x_1, x_2, \lambda)$ pode ser definida como:
+                \begin{equation*}
+                    \mathcal{L}(x_1, x_2, \lambda) = f(x_1, x_2) + \lambda \cdot h(x_1,x_2).
+                \end{equation*}
+                
+                Substituindo $f(\cdot)$ e $h(\cdot)$ em $\mathcal{L}(\cdot)$, temos:
+                \begin{equation*}
+                    \mathcal{L}(x_1, x_2, \lambda) = (x_1 - 1)^2 + (x_2 - 2)^2 + \lambda((x_1-1)^2 - 6x_2).
+                \end{equation*}
+
+                O gradiente do Lagrangeano com respeito a $x_1$ e $x_2$ deve ser zero, então $\cfrac{\partial \mathcal{L}}{\partial x_1} = 0$ e $\cfrac{\partial \mathcal{L}}{\partial x_2} = 0$.
+                \begin{equation*}
+                    \begin{aligned}
+                        \cfrac{\partial \mathcal{L}}{\partial x_1} = & 2(x_1 - 1)(1 + \lambda)\\
+                        \cfrac{\partial \mathcal{L}}{\partial x_2} = & 2(x_2-2) - 6\lambda
+                    \end{aligned}
+                \end{equation*}
+
+                As condições do gradiente são, portanto:
+                    \begin{align}
+                        2(x_1 - 1)(1 + \lambda) = 0 \label{eq:grad-cond1}\\
+                        2(x_2 - 2) - 6\lambda = 0 \label{eq:grand-con2}.
+                    \end{align}
+            \end{enumerate}
             \item[(d)] Determine a solução ótima.
+            
+            A primeira condição do gradiente (\ref{eq:grad-cond1}) nos dá duas possibilidades: ou $x_1 = 1$ ou $\lambda = -1$. Pela segunda condição do gradiente (\ref{eq:grand-con2}), $x_2 = 2 + 3\lambda$. Substituindo na restrição primária (\ref{eq:primal-constraint}):
+            \begin{itemize}
+                \item Para $x_1 = 1$, $x_2 = 0$. Já que $x_2 = 2 + 3\lambda$, então $\lambda = -\cfrac{2}{3}$. Logo, uma das soluções é:
+                \begin{equation*}
+                    x_1 = 1, \quad x_2 = 0, \quad \lambda = -\cfrac{2}{3}.
+                \end{equation*}
+                \item Para $\lambda = -1$. Já que $x_2 = 2 + 3\lambda$, então $x_2 = -1$. Substituindo na restrição primária (\ref{eq:primal-constraint}), temos que
+                \begin{equation*}
+                    (x_1 - 1)^2 = -6,
+                \end{equation*}
+                \noindent o que não é possível, já que o lado esquerdo da igualdade é não-negativo, enquanto que o lado direito é negativo.
+            \end{itemize}
+
+            Portanto, a única solução que satisfaz as condições de KKT é:
+            \begin{equation*}
+                x_1 = 1, \quad x_2 = 0, \quad \lambda = -\cfrac{2}{3}.
+            \end{equation*}
         \end{itemize}
     \item Considere o problema de otimização:
         \begin{align*}
@@ -104,9 +181,131 @@
         \end{align*}
         \begin{itemize}
             \item[(a)] Expresse as condições de KKT para o problema.
+            
+            Seja $f(x) = x^2 + 3x + 1$ a função a ser minimizada e $h(x) = (x-1)(x-3) \leq 0$ a restrição do problema. Reescrevendo $h(x)$, temos que
+            \begin{equation*}
+                h(x) = x^2 - 4x + 3 \leq 0.
+            \end{equation*}
+
+            O a função Lagrangeano então é dada por 
+            \begin{equation*}
+                \begin{aligned}
+                    \mathcal{L}(x, \lambda) = & f(x) + \lambda \cdot h(x)\\
+                    \mathcal{L}(x, \lambda) = & x^2 + 3x + 1 + \lambda (x^2 - 4x + 3).
+                \end{aligned}
+            \end{equation*}
+
+            As condições de KKT para o problema são:
+            \begin{enumerate}[label=\Roman*]
+                \item \textbf{Restrição primária:} 
+                \begin{equation}
+                    h(x) \leq 0 \leadsto (x-1)(x-3) \leq 0
+                    \label{eq:primal-constraint-2}
+                \end{equation}.
+                \item \textbf{Restrição dual:} 
+                \begin{equation}
+                    \lambda \geq 0.
+                    \label{eq:dual-constraint-2}   
+                \end{equation}
+                \item \textbf{Folga complementar}: 
+                
+                \begin{equation}
+                    \lambda \cdot h(x) = 0 \leadsto \lambda \cdot (x-1)(x-3) = 0
+                    \label{eq:complementary-slackness-2}
+                \end{equation}.
+                \item \textbf{Gradiente do Lagrangeano desaparece:} 
+                
+                $\cfrac{\partial\mathcal{L}}{\partial x} = 0$.
+
+                \begin{equation}
+                    \begin{aligned}
+                        \cfrac{\partial \mathcal{L}}{\partial x} = & \cfrac{\partial}{\partial x} x^2 + 3x + 1 + \lambda(x^2 - 4x + 3)\\
+                        \cfrac{\partial \mathcal{L}}{\partial x} = & 2x + 3 + \lambda(2x - 4) = 0.
+                    \end{aligned}
+                    \label{eq:gradient-condition-2}
+                \end{equation}
+            \end{enumerate}
             \item[(b)] Determine a solução ótima.
+
+            Utilizando a folga complementar (\ref{eq:complementary-slackness-2}), temos três possibilidades: $\lambda = 0$, $x = 1$ ou $x = 3$.
+            \begin{itemize}
+                \item Para $\lambda = 0$, utilizando a condição do gradiente (\ref{eq:gradient-condition-2}):
+                \begin{equation*}
+                    2x + 3 = 0 \leadsto x = - \cfrac{3}{2}.
+                \end{equation*}
+                Substituindo na restrição primária (\ref{eq:primal-constraint-2}):
+                \begin{equation*}
+                    (x-1)(x-3) = \cfrac{45}{4} > 0
+                \end{equation*}
+                \noindent o que viola a restrição primária. Portanto, $\lambda = 0$ não é uma solução válida.
+                \item Para $x = 1$, utilizando a condição do gradiente (\ref{eq:gradient-condition-2}):
+                \begin{equation*}
+                    2 + 3 + \lambda(-2) = 0 \leadsto \lambda = \cfrac{5}{2},
+                \end{equation*}
+                \noindent o que está de acordo com a restrição dual (\ref{eq:dual-constraint-2}).
+                \item Para $x = 3$, utilizando a condição do gradiente (\ref{eq:gradient-condition-2}):
+                \begin{equation*}
+                    9 + 2 \lambda = 0 \leadsto \lambda = -\cfrac{9}{2},
+                \end{equation*}
+                \noindent o que viola a restrição dual (\ref{eq:dual-constraint-2}). Portanto, $x = 3$ não é uma solução válida. 
+            \end{itemize}
+            Dessa forma, a solução ótima para o problema é:
+            \begin{equation*}
+                x = 1, \quad \lambda = \cfrac{5}{2}.
+            \end{equation*}
             \item[(c)] Encontre a função dual e o problema dual.
+            
+            A função dual $g(\lambda)$ é encontrada ao minimizar o Lagrangeano com relação a x:
+            \begin{equation*}
+                g(\lambda) = \underset{x}{\min} \, \mathcal{L}(x, \lambda).
+            \end{equation*}
+            Derivando $\mathcal{L}(\cdot)$ e igualando a 0, temos
+            \begin{equation*}
+                \cfrac{\partial \mathcal{L}}{\partial x} = 2(1+\lambda)x + (3-4\lambda) = 0,
+            \end{equation*}
+            \noindent o que nos dá
+            \begin{equation*}
+                x = \cfrac{4\lambda - 3}{2(1+\lambda)}.
+            \end{equation*}
+            Substituindo $x$ no Lagrangeano, temos que a função dual é
+            \begin{equation*}
+                g(\lambda) = -\cfrac{(4\lambda - 3)^2}{4(1+\lambda)} + 1 + 3\lambda.
+            \end{equation*}
+
+            O problema dual é definido então como maximizar a função dual sujeito à restrição dual. Dessa forma, o problema dual é
+            \begin{equation*}
+                \begin{aligned}
+                    \max \quad & g(\lambda)\\
+                    \text{s.t.} \quad & \lambda \geq 0. 
+                \end{aligned}
+            \end{equation*}
             \item[(d)] Verifique se o problema apresenta dualidade forte.
+            
+            A função objetivo $f(x)$ é quadrática e convexa. A restrição $h(x) = (x-1)(x-3) \leq 0$ pode ser reescrita como $h(x) = x^2 - 4x + 3 \leq 0$ e também é convexa. A região viável $h(x) \leq 0$ é o intervalo $[1,3]$, que é um conjunto convexo. Dessa forma, o problema é um problema de otimização convexo. 
+
+            De acordo com a condição de Slater, a dualidade forte é atendida se existe um ponto viável $x$ tal que $h(x) < 0$. A restrição $h(x) = (x-1)(x-3) \leq 0$ é satisfeita por $x \in [1,3]$. Para $x = 2$, $h(x) = -1 \leq 0$. Portanto, a condição de Slater é atendida.
+
+            O problema primário pode ser resolvido encontrando o mínimo de $f(x)$ sujeito a $x \in [1,3]$. O ponto mínimo de $f(x)$ pode ser encontrado quando a derivada é zero:
+            \begin{equation*}
+                f'(x) = 2x + 3 = 0 \leadsto x = -\cfrac{3}{2}.
+            \end{equation*}
+            Porém, esse ponto não é viável pois está fora do intervalo $[1,3]$. Para $x=1$, $f(x) = 5$. Para $x = 3$, $f(x) = 19$. O valor mínimo de $f(x)$ na região viável é 5, encontrado para $x=1$.
+
+            O problema dual é
+            \begin{equation*}
+                \begin{aligned}
+                    & \max \, g(\lambda) = -\cfrac{(4\lambda - 3)^2}{4(1 + \lambda)} + 1 + 3\lambda\\
+                    & \text{s.t.} \, \lambda \geq 0.
+                \end{aligned}
+            \end{equation*}
+
+            Pelas condições de KKT, a solução ótima dual é $\lambda = \cfrac{5}{2}$. Substituindo $\lambda$ na função dual, temos que
+            \begin{equation*}
+                g(\cfrac{5}{2}) = 5.
+            \end{equation*}
+
+            Já que as soluções primárias e dual são iguais, a dualidade forte é válida para o problema. 
+
         \end{itemize}
     \item Considere o problema de otimização:
         \begin{align*}
@@ -119,7 +318,198 @@
         \end{align*}
         \begin{itemize}
             \item[(a)] Expresse as condições de KKT para o problema.
-            \item[(b)] Determine os pontos que satisfazem às condições de KKT e encontre a solução ótima.
+            Seja $f(x,y) = x^2 + y^2$ a função a ser minimizada e h(x,y) as restrições do problema:
+            \begin{equation*}
+                \begin{cases}
+                    h_1(x,y) = 1 - x - y \leq 0\\
+                    h_2(x,y) = y - 2 \leq 0\\
+                    h_3(x,y) = x - y^2 \leq 0.
+                \end{cases}
+            \end{equation*}
+            
+            O Lagrangeano $\mathcal{L}(x, y, \lambda_1, \lambda_2, \lambda_3)$ é definido por
+            \begin{equation*}
+                \mathcal{L}(x,y,\lambda) = f(x,y) + \lambda_1h_1(x,y) + \lambda_2h_2(x,y) + \lambda_3h_3(x,y).
+            \end{equation*}
+
+            Substituindo $f(x,y)$ e as restrições na equação acima, temos que
+            \begin{equation*}
+                \mathcal{L}(x,y,\lambda) = x^2 + y^2 + \lambda_1(1-x-y) + \lambda_2(y-2) + \lambda_3(x-y^2).
+            \end{equation*}
+
+            \begin{enumerate}[label=\Roman*]
+                \item \textbf{Condições do gradiente do Lagrangeano}
+                \begin{equation*}
+                    \cfrac{\partial \mathcal{L}}{\partial x} = 0 \quad \text{e} \quad \cfrac{\partial \mathcal{L}}{\partial y} = 0.
+                \end{equation*}
+                \begin{align}
+                    \cfrac{\partial \mathcal{L}}{\partial x} = & 2x - \lambda_1 + \lambda_3 = 0\label{eq:gradcond-1-q4}\\
+                    \cfrac{\partial \mathcal{L}}{\partial y} = & 2y - \lambda_1 + \lambda_2 - 2\lambda_3y = 0\label{eq:gradcond-2-q4}
+                \end{align}
+                \item \textbf{Restrições primárias}
+                \begin{equation*}
+                    h_1(x,y) \leq 0, \quad h_2(x,y) \leq 0, \quad h_3(x,y) \leq 0.
+                \end{equation*}
+                \begin{align}
+                        1 - x - y \leq 0\label{eq:restprimal1-q4}\\
+                        y - 2 \leq 0\label{eq:restprimal2-q4}\\
+                        x - y^2 \leq 0\label{eq:restprimal3-q4}.
+                \end{align}
+                \item \textbf{Restrições duais}
+                \begin{equation*}
+                    \lambda_1 \geq 0, \quad \lambda_2 \geq 0, \quad \lambda_3 \geq 0.
+                \end{equation*}
+                \item \textbf{Folga complementar}
+                \begin{equation*}
+                    \lambda_1h_1(x,y) = 0, \quad \lambda_2h_2(x,y) = 0, \quad \lambda_3h_3(x,y) = 0.
+                \end{equation*}
+                \begin{align}
+                        \lambda_1(1 - x - y) = 0\label{eq:folga1-q4}\\
+                        \lambda_2(y-2) = 0\label{eq:folga2-q4}\\
+                        \lambda_3(x - y^2) = 0\label{eq:folga3-q4}.
+                \end{align}
+            \end{enumerate}
+
+            \item[(b)] Determine os pontos que satisfazem as condições de KKT e encontre a solução ótima.
+            
+            Considerando as condições de folga complementar:
+            \begin{enumerate}[label=\roman*]
+                \item $\lambda_1 = 0$, $\lambda_2 = 0$, $\lambda_3 = 0$.
+                Substituindo nas condições do gradiente (\ref{eq:gradcond-1-q4}, \ref{eq:gradcond-2-q4}), tem-se que
+                \begin{equation*}
+                    \begin{aligned}
+                        & 2x = 0 & \leadsto \quad & x = 0\\
+                        & 2y = 0 & \leadsto \quad & y = 0.
+                    \end{aligned}
+                \end{equation*}
+                Isso porém não atende às restrições primárias e portanto não é viável: $1 - 0 - 0 = 1 \leq 0$.
+                \item $\lambda_1 > 0$, $\lambda_2 = 0$, $\lambda_3 = 0$.
+                
+                A partir de \ref{eq:folga1-q4}:
+                \begin{equation*}
+                    1 - x - y = 0 \leadsto x + y = 1.
+                \end{equation*}
+                Substituindo em \ref{eq:gradcond-1-q4} e \ref{eq:gradcond-2-q4}:
+                \begin{equation*}
+                    \begin{aligned}
+                        2x - \lambda_1 = 0 \leadsto \lambda_1 = 2x\\
+                        2y - \lambda_1 = 0 \leadsto \lambda_1 = 2y.
+                    \end{aligned}
+                \end{equation*}
+                Dessa forma, $2x =2y \therefore x = y$. Substituindo $x = y$ em $x + y = 1$:
+                \begin{equation*}
+                    2x = 1 \leadsto x = \frac{1}{2}, \quad y = \cfrac{1}{2}.
+                \end{equation*}
+                No entanto, o caso não é viável pois não atende à restrição primária (\ref{eq:restprimal3-q4}):
+                \begin{equation*}
+                    x - y^2 = \cfrac{1}{2} - \cfrac{1}{4} = \cfrac{1}{4} \leq 0.
+                \end{equation*}
+                \item $\lambda_1 = 0$, $\lambda_2 > 0$, $\lambda_3 = 0$
+                A partir de (\ref{eq:folga2-q4}):
+                \begin{equation*}
+                    y - 2 = 0 \leadsto y = 2.
+                \end{equation*}
+                Substituindo em (\ref{eq:gradcond-1-q4}) e (\ref{eq:gradcond-2-q4}):
+                \begin{equation*}
+                    \begin{aligned}
+                        & 2x + \lambda_3 = 0 \leadsto \lambda_3 = -2x\\
+                        & 2 y - \lambda_1 + \lambda_2 - 2\lambda_3y = 0 \leadsto 4 - \lambda_1 + \lambda_2 - 4\lambda_3 = 0.
+                    \end{aligned}
+                \end{equation*}
+                Já que $\lambda_1 = \lambda_3 = 0$
+                \begin{equation*}
+                    4 + \lambda_2 = 0 \leadsto \lambda_2 = -4,
+                \end{equation*}
+                o que viola a restrição dual. Dessa forma, o caso não é viável.
+                \item $\lambda_1 = 0$, $\lambda_2 = 0$, $\lambda_3 > 0$
+                A partir de (\ref{eq:folga3-q4}):
+                \begin{equation*}
+                    x - y^2 = 0 \leadsto x = y^2.
+                \end{equation*}
+                Substituindo em (\ref{eq:gradcond-1-q4}) e (\ref{eq:gradcond-2-q4}):
+                \begin{equation*}
+                    \begin{aligned}
+                        &2x + \lambda_3 = 0 \leadsto \lambda_3 = 2x\\
+                        &2y - \lambda_1 + \lambda_2 - 2\lambda_3y = 0 \leadsto y(2 + 4x) = 0.
+                    \end{aligned}
+                \end{equation*}
+                Já que $y \neq 0$, pois $x = y^2$, tem-se que
+                \begin{equation*}
+                    2 + 4x = 0 \leadsto x = -\cfrac{1}{2},
+                \end{equation*}
+                \noindent o que viola $x = y^2 \geq 0$. Portanto, o caso não é viável.
+                \item $\lambda_1 > 0$, $\lambda_2 > 0$, $\lambda_3 = 0$
+                A partir de (\ref{eq:folga1-q4}) e (\ref{eq:folga2-q4}):
+                \begin{equation*}
+                    \begin{aligned}
+                        & 1 - x - y = 0 \leadsto x + y = 1\\
+                        & y - 2 = 0 \leadsto y = 2.
+                    \end{aligned}
+                \end{equation*}
+                Substituindo $y = 2$ em $x + y = 1$
+                \begin{equation*}
+                    x + 2 = 1 \leadsto x = -1.
+                \end{equation*}
+                Substituindo em (\ref{eq:gradcond-1-q4}): $\lambda_1 = -2$, o que viola a restrição dual. Portanto, o caso não é viável.
+                \item $\lambda_1 > 0$, $\lambda_2 = 0$, $\lambda_3 > 0$
+                A partir de (\ref{eq:folga1-q4}) e (\ref{eq:folga2-q4}):
+                \begin{equation*}
+                    \begin{aligned}
+                        & 1 - x - y = 0 \leadsto x + y = 1\\
+                        & x - y^2 = 0 \leadsto x = y^2.
+                    \end{aligned}
+                \end{equation*}
+                Substituindo $x = y^2$ em $x + y = 1$:
+                \begin{equation*}
+                    y^2 + y - 1 = 0 \leadsto y = \cfrac{-1 \pm \sqrt{5}}{2}.
+                \end{equation*}
+                A solução positiva é 
+                \begin{equation*}
+                    y = \cfrac{-1 + \sqrt{5}}{2} \approx 0.618.
+                \end{equation*}
+                Dessa forma, $x = y^2 \approx 0.382$, o que está de acordo com a restrição primária $y -2 = -1.382 \leq 0$.
+
+                Substituindo em (\ref{eq:gradcond-1-q4}) e (\ref{eq:gradcond-2-q4}):
+                \begin{equation*}
+                    \begin{aligned}
+                        & 2x - \lambda_1 + \lambda_3 = 0 \leadsto \lambda_1 - \lambda_3 = 0.764\\
+                        & 2y - \lambda_1 + 2\lambda_3y = 0 \leadsto \lambda_1 + 1.236\lambda_3 = 1.236.
+                    \end{aligned}
+                \end{equation*}
+                Resolvendo o sistema, temos que $\lambda_3 \approx -0.211$ e $\lambda_1 = 0.975$. Uma vez que ambos $\lambda_1$ e $\lambda_2$ atendem às restrições duais, o caso é viável.
+                \item $\lambda_1 = 0$, $\lambda_2 > 0$, $\lambda_3 > 0$
+                A partir de ($\ref{eq:folga2-q4}$) e ($\ref{eq:folga3-q4}$):
+                \begin{equation*}
+                    \begin{aligned}
+                        & y - 2 = 0 \leadsto y = 2\\
+                        & x - y^2 = 0 \leadsto x = 4.
+                    \end{aligned}
+                \end{equation*}
+                Substituindo em (\ref{eq:gradcond-1-q4}), $\lambda_3 = -8$, o que viola a restrição dual. Portanto, o caso não é viável. 
+                \item $\lambda_1 > 0$, $\lambda_2 > 0$, $\lambda_3 > 0$
+                A partir de (\ref{eq:folga1-q4}), (\ref{eq:folga2-q4}) e (\ref{eq:folga3-q4}):
+                \begin{equation*}
+                    \begin{aligned}
+                        & 1 - x - y = 0 \leadsto x + y = 1\\
+                        & y - 2 = 0 \leadsto y = 2\\
+                        & x - y^2 = 0 \leadsto x = 4.
+                    \end{aligned}
+                \end{equation*}
+                Substituindo $y = 2$ em $x + y = 1$:
+                \begin{equation*}
+                    x + 2 = 1 \leadsto x = -1,
+                \end{equation*}
+                \noindent porém isso contradiz $x = 4$. Portanto, o caso não é viável.
+            \end{enumerate}
+            Para o único caso viável, 
+            \begin{equation*}
+                x \approx 0.382, \quad y = \approx -0.618.
+            \end{equation*}
+            Os multiplicadores de Lagrange são
+            \begin{equation*}
+                \lambda_1 \approx 0.975, \quad \lambda_2 = 0, \quad \lambda_3 \approx 0.211.
+            \end{equation*}
+            Dessa força, a função objetivo no ponto ótimo é $f(x,y) = 0.528$.
         \end{itemize}
 \end{enumerate}
 
